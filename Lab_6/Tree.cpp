@@ -239,7 +239,7 @@ Struct* Tree::find(int val) {
 
 void Tree::bfs_func() {
     queue<Struct**> q;
-    bool parity = false;
+    bool parity = true;
     int i = 0;
 
     q.push(&head);
@@ -251,8 +251,8 @@ void Tree::bfs_func() {
         Struct** cur = q.front(); q.pop();
 
         if (cur) {
-            if (!parity) {
-                Struct* tmp = *cur;
+            Struct* tmp = *cur;
+            if (parity && (tmp->left != nullptr || tmp->right != nullptr)) {
                 *cur = del(*cur, tmp->parent);
 
                 cout << "\nIteration: " << ++i << "\n\n";
@@ -278,7 +278,6 @@ void Tree::func() {
         bfs_func();
     }
 };
-
 
 void Tree::bfs() {
     queue<Struct*> q;

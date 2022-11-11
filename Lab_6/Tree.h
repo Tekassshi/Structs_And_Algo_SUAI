@@ -44,11 +44,11 @@ class Tree {
 	Struct* get(Struct* node, int val, int step);
 
 public:
-	Struct* getHead();
-	void add(int val);
-	void remove(int val);
-	void show();
 	Struct* find(int val);
+	Struct* getHead();
+	void remove(int val);
+	void add(int val);
+	void show();
 	void func();
 	void bfs();
 };
